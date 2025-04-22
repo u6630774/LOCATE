@@ -195,7 +195,7 @@ class Net(nn.Module):
 
         return masks, logits, loss_proto, loss_con
 
-    @torch.no_grad()
+    # @torch.no_grad()
     def test_forward(self, ego, aff_label):
         _, ego_key, ego_attn = self.vit_model.get_last_key(ego)  # attn: b x 6 x (1+hw) x (1+hw)
         ego_desc = ego_key.permute(0, 2, 3, 1).flatten(-2, -1)
